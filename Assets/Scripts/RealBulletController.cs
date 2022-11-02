@@ -11,6 +11,8 @@ public class RealBulletController : MonoBehaviour
     public List<Quaternion> bulletRotations; // holds a rotaiton over time of the bullet
     public bool startReplay;
     public int posIndex = 0;
+
+    public GameController gameController;
     void Start()
     {
         
@@ -32,6 +34,7 @@ public class RealBulletController : MonoBehaviour
             else
             {
                 transform.position = Vector3.MoveTowards(transform.position, bulletPositions[posIndex], bulletSpeed * Time.deltaTime);
+                transform.rotation = Quaternion.Slerp(transform.rotation, bulletRotations[posIndex], bulletRotationSpeed * Time.deltaTime);
             }
         }    
     }

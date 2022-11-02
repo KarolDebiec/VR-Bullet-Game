@@ -6,8 +6,6 @@ public class GameController : MonoBehaviour
 {
     public BulletController virtualBullet;
     public RealBulletController realBullet;
-    public List<Vector3> bulletPositions; // holds a progressive path over time of the bullet
-    public List<Quaternion> bulletRotations; // holds a rotaiton over time of the bullet
 
     public bool testBool;
     // Start is called before the first frame update
@@ -24,10 +22,9 @@ public class GameController : MonoBehaviour
             GetTrackToRealBullet();
             testBool = false;
         }
-        
     }
 
-    void GetTrackToRealBullet()
+    public void GetTrackToRealBullet()
     {
         realBullet.bulletPositions = virtualBullet.bulletPositions;
         realBullet.bulletRotations = virtualBullet.bulletRotations;

@@ -16,7 +16,13 @@ public class BulletController : MonoBehaviour
 
     private float time = 0f;
 
+    private bool fired = true;
     private bool ended;
+
+    public GameController gameController;
+
+    public GameObject dotsContainer;
+    public GameObject dot;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +34,7 @@ public class BulletController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(distance > 0)
+        if(distance > 0 && fired)
         {
             distance -= speed * Time.deltaTime;
             transform.Rotate(dir * speed * Time.deltaTime);
@@ -39,13 +45,22 @@ public class BulletController : MonoBehaviour
                 time = 0;
                 bulletPositions.Add(gameObject.transform.position);
                 bulletRotations.Add(gameObject.transform.localRotation);
+                GameObject dotty = Instantiate(dot, gameObject.transform.position, Quaternion.identity);
+                dotty.transform.parent = dotsContainer.transform;
             }
         }
         else if (!ended)
         {
+            fired = false;
             ended = true;
             bulletPositions.Add(gameObject.transform.position);
             bulletRotations.Add(gameObject.transform.localRotation);
+            gameController.GetTrackToRealBullet();
         }
+    }
+
+    public void FireVirtualBullet()
+    {
+        fired = true;
     }
 }
