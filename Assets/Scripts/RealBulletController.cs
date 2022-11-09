@@ -15,7 +15,7 @@ public class RealBulletController : MonoBehaviour
     public GameController gameController;
     void Start()
     {
-        
+        gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
     }
 
     // Update is called once per frame
@@ -37,5 +37,16 @@ public class RealBulletController : MonoBehaviour
                 transform.rotation = Quaternion.Slerp(transform.rotation, bulletRotations[posIndex], bulletRotationSpeed * Time.deltaTime);
             }
         }    
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag =="Target")
+        {
+            Debug.Log("you win!!");
+        }
+        else
+        {
+            Debug.Log("you lose!");
+        }
     }
 }

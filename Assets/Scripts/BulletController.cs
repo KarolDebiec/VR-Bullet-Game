@@ -6,8 +6,11 @@ public class BulletController : MonoBehaviour
 {
     public float speed;
     public Vector3 dir;
+    private Vector3 originalDir;
     public float maxSpeed = 10f;
     public float minSpeed = 1f;
+
+    public float rotationStrenght = 0.4f;
 
     public float distance=10f;
 
@@ -23,9 +26,17 @@ public class BulletController : MonoBehaviour
 
     public GameObject dotsContainer;
     public GameObject dot;
+
+    public GameObject rightController;
+    
     // Start is called before the first frame update
     void Start()
     {
+        gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+        rightController = gameController.rightController;
+        dotsContainer = gameController.dotsContainer;
+        gameController.originPos = transform.position;
+        originalDir = new Vector3(rightController.transform.localRotation.eulerAngles.x, rightController.transform.localRotation.eulerAngles.y,0);
         // setup origin
         bulletPositions.Add(gameObject.transform.position);
         bulletRotations.Add(gameObject.transform.localRotation);
@@ -36,8 +47,10 @@ public class BulletController : MonoBehaviour
     {
         if(distance > 0 && fired)
         {
+            dir = (new Vector3(rightController.transform.localRotation.eulerAngles.x, rightController.transform.localRotation.eulerAngles.y, 0) )* rotationStrenght;
             distance -= speed * Time.deltaTime;
-            transform.Rotate(dir * speed * Time.deltaTime);
+            //transform.Rotate(dir * speed * Time.deltaTime);
+            transform.rotation = Quaternion.Euler(rightController.transform.localRotation.eulerAngles.x, rightController.transform.localRotation.eulerAngles.y, 0);
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
             time += Time.deltaTime;
             if (time > 0.3f)
@@ -55,7 +68,7 @@ public class BulletController : MonoBehaviour
             ended = true;
             bulletPositions.Add(gameObject.transform.position);
             bulletRotations.Add(gameObject.transform.localRotation);
-            gameController.GetTrackToRealBullet();
+            gameController.VirtualBulletStopped();
         }
     }
 
