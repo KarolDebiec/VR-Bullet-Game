@@ -30,6 +30,7 @@ public class RealBulletController : MonoBehaviour
             if(posIndex >= bulletPositions.Count)
             {
                 startReplay = false;
+                BulletEnded();
             }
             else
             {
@@ -40,13 +41,25 @@ public class RealBulletController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("something hit");
         if(other.tag =="Target")
         {
             Debug.Log("you win!!");
+            gameController.targetHit();
+            BulletEnded();
         }
         else
         {
             Debug.Log("you lose!");
+            gameController.obstacleHit();
+            BulletEnded();
         }
+    }
+    void BulletEnded()
+    {
+        gameController.clearDots();
+        gameController.virtualBulletController.Dest();
+        gameController.canFireVirtBullet = true;
+        Destroy(gameObject);
     }
 }

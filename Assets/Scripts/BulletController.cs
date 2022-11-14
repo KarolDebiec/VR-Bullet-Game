@@ -53,7 +53,7 @@ public class BulletController : MonoBehaviour
             transform.rotation = Quaternion.Euler(rightController.transform.localRotation.eulerAngles.x, rightController.transform.localRotation.eulerAngles.y, 0);
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
             time += Time.deltaTime;
-            if (time > 0.3f)
+            if (time > 0.12f)
             {
                 time = 0;
                 bulletPositions.Add(gameObject.transform.position);
@@ -75,5 +75,9 @@ public class BulletController : MonoBehaviour
     public void FireVirtualBullet()
     {
         fired = true;
+    }
+    public void Dest()
+    {
+        Destroy(gameObject);
     }
 }

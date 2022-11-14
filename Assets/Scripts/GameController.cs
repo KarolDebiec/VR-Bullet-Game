@@ -27,6 +27,9 @@ public class GameController : MonoBehaviour
     public GameObject rightController;
     public GameObject dotsContainer;
 
+    public AudioSource audioSource;
+    public AudioClip winClip;
+    public AudioClip missClip;
     private void Awake()
     {
         if (primaryButtonPress == null)
@@ -71,7 +74,7 @@ public class GameController : MonoBehaviour
     }
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -114,7 +117,7 @@ public class GameController : MonoBehaviour
     {
         GameObject virtualBullet = Instantiate(virtualBulletPrefab, pistolBulletOrigin.transform.position, pistolBulletOrigin.transform.rotation);
         virtualBulletController = virtualBullet.GetComponent<BulletController>();
-        Debug.Log("Trigger pulled!!!");
+       // Debug.Log("Trigger pulled!!!");
     }
 
     private void FireRealBullet()
@@ -128,5 +131,24 @@ public class GameController : MonoBehaviour
     public void VirtualBulletStopped()
     {
         canFireRealBullet = true;
+    }
+    public void clearDots()
+    {
+        foreach (Transform child in dotsContainer.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+    }
+
+    public void targetHit()
+    {
+        audioSource.clip = winClip;
+        audioSource.Play();
+    }
+
+    public void obstacleHit()
+    {
+        audioSource.clip = missClip;
+        audioSource.Play();
     }
 }

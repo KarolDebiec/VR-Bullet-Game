@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 10
-  bulletRotationSpeed: 10
+  bulletRotationSpeed: 30
   bulletPositions: []
   bulletRotations: []
   startReplay: 0

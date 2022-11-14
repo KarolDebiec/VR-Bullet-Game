@@ -141,10 +141,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20008f0850815a54a9943f488f565c8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
+  speed: 2
   dir: {x: 0, y: 0, z: 1}
   maxSpeed: 10
   minSpeed: 1
+  rotationStrenght: 0.4
   distance: 10
   bulletPositions: []
   bulletRotations: []
