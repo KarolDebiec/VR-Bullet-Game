@@ -17,16 +17,16 @@ public class TestTargetController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if(transform.position.x >= boundaryX)
+        if(transform.position.x <= -boundaryX)
         {
             dir = Vector3.right;
         }
-        if (transform.position.x <= -boundaryX)
+        if (transform.position.x >= boundaryX)
         {
             dir = Vector3.left;
-        }*/
+        }
 
-        if (transform.position.z >= boundaryY && transform.position.x >= boundaryX)
+       /* if (transform.position.z >= boundaryY && transform.position.x >= boundaryX)
         {
             dir = Vector3.right;
         }
@@ -41,7 +41,7 @@ public class TestTargetController : MonoBehaviour
         if (transform.position.z <= -boundaryY && transform.position.x <= -boundaryX)
         {
             dir = Vector3.left;
-        }
+        }*/
 
 
         transform.Translate(dir * speed * Time.deltaTime);

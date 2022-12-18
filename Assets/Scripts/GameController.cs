@@ -9,6 +9,13 @@ public class PrimaryButtonEvent : UnityEvent<bool> { }
 
 public class GameController : MonoBehaviour
 {
+    //Levels
+    public GameObject menuLevel;
+    public GameObject activeLevel;
+    //
+    public PlayerController playerController;
+
+
     public GameObject virtualBulletPrefab;
     public GameObject realBulletPrefab;
     public BulletController virtualBulletController;
@@ -16,6 +23,7 @@ public class GameController : MonoBehaviour
     public Vector3 originPos;
     public GameObject pistolBulletOrigin;
 
+    public bool canShootMode = false;
     public bool canFireVirtBullet = true;
     public bool canFireRealBullet = false;
 
@@ -80,29 +88,31 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        bool tempState = false;
-        foreach (var device in devicesWithPrimaryButton)
+        if(canShootMode)
         {
-            bool primaryButtonState = false;
-            tempState = device.TryGetFeatureValue(CommonUsages.triggerButton, out primaryButtonState) // did get a value
-                        && primaryButtonState // the value we got
-                        || tempState; // cumulative result from other controllers
-        }
-
-        if (tempState != lastButtonState) // Button state changed since last frame
-        {
-            primaryButtonPress.Invoke(tempState);
-            lastButtonState = tempState;
-            if(canFireVirtBullet)
+            bool tempState = false;
+            foreach (var device in devicesWithPrimaryButton)
             {
-                PulledTrigger();
-                canFireVirtBullet = false;
+                //Debug.Log(device.name);
+                bool primaryButtonState = false;
+                tempState = device.TryGetFeatureValue(CommonUsages.triggerButton, out primaryButtonState) // did get a value
+                            && primaryButtonState // the value we got
+                            || tempState; // cumulative result from other controllers
             }
-            if (canFireRealBullet)
+            if (tempState != lastButtonState) // Button state changed since last frame
             {
-                FireRealBullet();
-                canFireRealBullet = false;
+                primaryButtonPress.Invoke(tempState);
+                lastButtonState = tempState;
+                if (canFireVirtBullet)
+                {
+                    PulledTrigger();
+                    canFireVirtBullet = false;
+                }
+                if (canFireRealBullet)
+                {
+                    FireRealBullet();
+                    canFireRealBullet = false;
+                }
             }
         }
     }
@@ -150,5 +160,22 @@ public class GameController : MonoBehaviour
     {
         audioSource.clip = missClip;
         audioSource.Play();
+    }
+
+    public void LoadLevel(GameObject level)// this and loadmenulevel is to be changed
+    {
+        canShootMode = true;
+        menuLevel.SetActive(false);
+        playerController.ControllersToPistol();
+        activeLevel = Instantiate(level);
+    }
+
+    public void LoadMenuLevel()
+    {
+        playerController.ControllersToHands();
+        canShootMode = false;
+        Destroy(activeLevel);
+        menuLevel.SetActive(true);
+        menuLevel.GetComponent<MenuLevelController>().SetupMenuLevel();
     }
 }

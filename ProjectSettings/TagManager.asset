@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Target
+  - Commission
+  - Controller
+  - Obstacle
   layers:
   - Default
   - TransparentFX

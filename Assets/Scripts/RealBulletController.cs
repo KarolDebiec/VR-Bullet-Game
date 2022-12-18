@@ -41,11 +41,21 @@ public class RealBulletController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("something hit");
+        Debug.Log(other.name + " hit");
         if(other.tag =="Target")
         {
             Debug.Log("you win!!");
             gameController.targetHit();
+            BulletEnded();
+        }
+        else if (other.tag == "Controller")
+        {
+
+        }
+        else if (other.tag == "Obstacle")
+        {
+            other.GetComponent<ObstacleController>().ObstacleHit();
+            gameController.obstacleHit();
             BulletEnded();
         }
         else

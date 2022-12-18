@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class ChooseBoxController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public MenuLevelController menuLevelController;
+    private CommissionScript commissionScript;
+
+    public void OnTriggerEnter(Collider other)
     {
-        
+        if (other.tag == "Commission")
+        {
+            Debug.Log("nowa komisja");
+            commissionScript = other.GetComponent<CommissionScript>();
+            menuLevelController.chosenLevel = commissionScript.commissionLevel;
+           
+        }
+    }
+    public void PulledLever()
+    {
+        menuLevelController.ActivatedCommissionBox();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

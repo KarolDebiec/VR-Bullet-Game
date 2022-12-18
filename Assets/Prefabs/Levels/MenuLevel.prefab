@@ -105,6 +105,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3245042133424131838}
+  - component: {fileID: 4418057584758692537}
   m_Layer: 0
   m_Name: MenuLevel
   m_TagString: Untagged
@@ -123,11 +124,26 @@ Transform:
   m_LocalPosition: {x: -0.5721932, y: 3.932887, z: -4.0876074}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 5107410849558634794}
   - {fileID: 241450113333587879}
   - {fileID: 864145023835616272}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4418057584758692537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3376435945702229438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b352d0064edcbf948a701123d69b38b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameController: {fileID: 0}
+  chosenLevel: {fileID: 0}
 --- !u!1 &3570187202894458209
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,7 +176,7 @@ Transform:
   m_Children:
   - {fileID: 6913231099399768673}
   m_Father: {fileID: 3245042133424131838}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2526419756613796871
 MeshFilter:
@@ -190,7 +206,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a112a62fe8d828e4daca45c56d4f1580, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -225,6 +241,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &2684822570135509056
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3245042133424131838}
+    m_Modifications:
+    - target: {fileID: 7179666878725093738, guid: 8f13dde6776eb6646bca979dfb69f555,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f13dde6776eb6646bca979dfb69f555, type: 3}
+--- !u!4 &5107410849558634794 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7179666878725093738, guid: 8f13dde6776eb6646bca979dfb69f555,
+    type: 3}
+  m_PrefabInstance: {fileID: 2684822570135509056}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4978470046370684803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -235,7 +271,7 @@ PrefabInstance:
     - target: {fileID: 5686106186659425171, guid: ef315a67d1074704f9c7a29f510298b5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5686106186659425171, guid: ef315a67d1074704f9c7a29f510298b5,
         type: 3}
@@ -292,6 +328,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChooseBox
       objectReference: {fileID: 0}
+    - target: {fileID: 7539996187260501655, guid: ef315a67d1074704f9c7a29f510298b5,
+        type: 3}
+      propertyPath: menuLevelController
+      value: 
+      objectReference: {fileID: 4418057584758692537}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef315a67d1074704f9c7a29f510298b5, type: 3}
 --- !u!4 &864145023835616272 stripped
