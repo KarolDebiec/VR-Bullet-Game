@@ -6,6 +6,7 @@ public class RealBulletController : MonoBehaviour
 {
     public float bulletSpeed;
     public float bulletRotationSpeed;
+    public GameObject hitParticleEffectPrefab;
 
     public List<Vector3> bulletPositions; // holds a progressive path over time of the bullet
     public List<Quaternion> bulletRotations; // holds a rotaiton over time of the bullet
@@ -45,6 +46,7 @@ public class RealBulletController : MonoBehaviour
         if(other.tag =="Target")
         {
             Debug.Log("you win!!");
+            GameObject hitParticleEffect = Instantiate(hitParticleEffectPrefab, this.transform.position, this.transform.rotation);
             gameController.targetHit();
             BulletEnded();
         }
@@ -54,6 +56,7 @@ public class RealBulletController : MonoBehaviour
         }
         else if (other.tag == "Obstacle")
         {
+            GameObject hitParticleEffect = Instantiate(hitParticleEffectPrefab, this.transform.position, this.transform.rotation);
             other.GetComponent<ObstacleController>().ObstacleHit();
             gameController.obstacleHit();
             BulletEnded();
