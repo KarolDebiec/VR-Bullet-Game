@@ -119,7 +119,6 @@ MonoBehaviour:
   - {fileID: -6252812509230917952}
   - {fileID: 4799605573926799095}
   - {fileID: -1152320797070496995}
-  - {fileID: -674688157467247521}
   - {fileID: 5779288867224051267}
   - {fileID: -2511222879835028536}
   - {fileID: 9067597935516880392}
@@ -359,12 +358,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0ebc320a151d3408ea1e9fce54d40e, type: 3}
   m_Name: Open XR Package Settings
   m_EditorClassIdentifier: 
-  Keys: 01000000070000000e00000019000000
+  Keys: 01000000070000000e000000190000000d000000
   Values:
   - {fileID: -4792001278784549548}
   - {fileID: 8801238465993674192}
   - {fileID: -1987914763104160943}
   - {fileID: -4175191654635678423}
+  - {fileID: 6542950190486917973}
 --- !u!114 &465518887177404337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,6 +445,27 @@ MonoBehaviour:
   company: Unity
   priority: 0
   required: 0
+--- !u!114 &4353499800015222188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7de993716e042c6499d0c18eed3a773c, type: 3}
+  m_Name: MockRuntime Android
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: Mock Runtime
+  version: 0.0.2
+  featureIdInternal: com.unity.openxr.feature.mockruntime
+  openxrExtensionStrings: XR_UNITY_null_gfx XR_UNITY_android_present
+  company: Unity
+  priority: 0
+  required: 0
+  ignoreValidationErrors: 0
 --- !u!114 &4704574120242772067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,6 +568,8 @@ MonoBehaviour:
   company: Unity
   priority: 0
   required: 0
+  targetQuest: 1
+  targetQuest2: 1
 --- !u!114 &5779288867224051267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -563,7 +586,7 @@ MonoBehaviour:
   nameUi: Mock Runtime
   version: 0.0.2
   featureIdInternal: com.unity.openxr.feature.mockruntime
-  openxrExtensionStrings: XR_UNITY_null_gfx
+  openxrExtensionStrings: XR_UNITY_null_gfx XR_UNITY_android_present
   company: Unity
   priority: 0
   required: 0
@@ -608,6 +631,21 @@ MonoBehaviour:
   company: Unity
   priority: 0
   required: 0
+--- !u!114 &6542950190486917973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a1f07dc5afe854f9f12a4194aca3fb, type: 3}
+  m_Name: WebGL
+  m_EditorClassIdentifier: 
+  features: []
+  m_renderMode: 1
+  m_depthSubmissionMode: 0
 --- !u!114 &8801238465993674192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -625,6 +663,7 @@ MonoBehaviour:
   - {fileID: 4962048823439807858}
   - {fileID: -8313668879549788953}
   - {fileID: 2758946826455327913}
+  - {fileID: 4353499800015222188}
   - {fileID: 5446804750998254315}
   - {fileID: 2851157468368515283}
   - {fileID: 4749986013775185925}

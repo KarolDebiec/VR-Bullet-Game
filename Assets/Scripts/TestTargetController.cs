@@ -11,7 +11,7 @@ public class TestTargetController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(boundaryX, 1, boundaryY);
+        //transform.position = new Vector3(boundaryX, 1, boundaryY);
     }
 
     // Update is called once per frame

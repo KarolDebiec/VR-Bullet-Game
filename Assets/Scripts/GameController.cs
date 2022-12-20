@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 using UnityEngine.Events;
 using UnityEngine.XR;
 
@@ -88,7 +89,30 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(canShootMode)
+        if (Input.GetKeyDown(KeyCode.Q)) {
+            canFireVirtBullet = true;
+        }
+        //if (Input.GetButtonDown("Fire2") {
+        //    canFireRealBullet = true;
+        //}
+
+        if (canFireVirtBullet)
+        {
+            PulledTrigger();
+            canFireVirtBullet = false;
+        }
+        if (canFireRealBullet)
+        {
+            FireRealBullet();
+            canFireRealBullet = false;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Z))
+        {
+            LoadLevel(activeLevel);
+        }
+
+        if (canShootMode)
         {
             bool tempState = false;
             foreach (var device in devicesWithPrimaryButton)
