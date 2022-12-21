@@ -153,7 +153,9 @@ public class GameController : MonoBehaviour
     public void targetHit()
     {
         audioSource.clip = winClip;
-        audioSource.Play();
+        audioSource.Play(); 
+        //tutaj odpalic transition sceny
+        LoadMenuLevel();
     }
 
     public void obstacleHit()

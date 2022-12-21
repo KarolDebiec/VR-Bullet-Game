@@ -14,6 +14,8 @@ public class RealBulletController : MonoBehaviour
     public int posIndex = 0;
 
     public GameController gameController;
+
+    public GameObject bullethitSoundEffect;
     void Start()
     {
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
@@ -47,6 +49,7 @@ public class RealBulletController : MonoBehaviour
         {
             Debug.Log("you win!!");
             GameObject hitParticleEffect = Instantiate(hitParticleEffectPrefab, this.transform.position, this.transform.rotation);
+            Instantiate(bullethitSoundEffect, this.transform.position, this.transform.rotation);
             gameController.targetHit();
             BulletEnded();
         }
@@ -57,6 +60,7 @@ public class RealBulletController : MonoBehaviour
         else if (other.tag == "Obstacle")
         {
             GameObject hitParticleEffect = Instantiate(hitParticleEffectPrefab, this.transform.position, this.transform.rotation);
+            Instantiate(bullethitSoundEffect, this.transform.position, this.transform.rotation);
             other.GetComponent<ObstacleController>().ObstacleHit();
             gameController.obstacleHit();
             BulletEnded();
@@ -64,6 +68,7 @@ public class RealBulletController : MonoBehaviour
         else
         {
             Debug.Log("you lose!");
+            Instantiate(bullethitSoundEffect, this.transform.position, this.transform.rotation);
             gameController.obstacleHit();
             BulletEnded();
         }

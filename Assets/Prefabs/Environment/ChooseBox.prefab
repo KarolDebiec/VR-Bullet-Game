@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b6dad455fc20d084b9673fc7da7d0efb, type: 2}
+  - {fileID: 2100000, guid: ead40ac181748614d97a7b91b22f8b21, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -157,7 +157,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31863f82c57b9c64990d145b8a56eee4, type: 2}
+  - {fileID: 2100000, guid: ead40ac181748614d97a7b91b22f8b21, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -252,7 +252,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a112a62fe8d828e4daca45c56d4f1580, type: 2}
+  - {fileID: 2100000, guid: b6dad455fc20d084b9673fc7da7d0efb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -335,7 +335,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a112a62fe8d828e4daca45c56d4f1580, type: 2}
+  - {fileID: 2100000, guid: ead40ac181748614d97a7b91b22f8b21, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -397,8 +397,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4256032897683073681}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1, y: 0.575, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.15, z: 0.25}
+  m_LocalPosition: {x: -0.1, y: 0.55, z: 0}
+  m_LocalScale: {x: 0.05, y: 0.1, z: 0.25}
   m_Children: []
   m_Father: {fileID: 5686106186659425171}
   m_RootOrder: 2
@@ -431,7 +431,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31863f82c57b9c64990d145b8a56eee4, type: 2}
+  - {fileID: 2100000, guid: ead40ac181748614d97a7b91b22f8b21, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -515,11 +515,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  targetRightHand: {fileID: 0}
   targetPosition: {x: 0, y: 0, z: 0}
   diffRotation: {x: -90, y: 0, z: 0}
-  MaxRotationBound: 0.45
-  MinRotationBound: -0.45
+  LeverBound: 0
   tracking: 0
+  chooseBoxController: {fileID: 0}
 --- !u!65 &5944802431692573549
 BoxCollider:
   m_ObjectHideFlags: 0

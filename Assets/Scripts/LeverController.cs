@@ -29,6 +29,7 @@ public class LeverController : MonoBehaviour
             if (gameObject.transform.localRotation.z > LeverBound)
             {
                 Debug.Log("lever przekrecilo");
+                ResetPosition();
                 //gameObject.transform.localRotation = Quaternion.identity;
                 chooseBoxController.PulledLever();
                 tracking = false;
