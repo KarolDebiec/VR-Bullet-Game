@@ -2829,7 +2829,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 8f7380da49034cd488ddff94b1ac35d1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.206
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 8f7380da49034cd488ddff94b1ac35d1,
         type: 3}
@@ -2903,10 +2903,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7599426004211709901}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.84, z: 1}
+  m_Size: {x: 1, y: 3.67, z: 5.89}
   m_Center: {x: 0, y: 0.39, z: 0}
 --- !u!114 &7048615380962204207
 MonoBehaviour:
@@ -2923,4 +2923,4 @@ MonoBehaviour:
   boundaryX: 6
   boundaryY: 8
   dir: {x: 0, y: 0, z: 1}
-  speed: 2
+  speed: 1

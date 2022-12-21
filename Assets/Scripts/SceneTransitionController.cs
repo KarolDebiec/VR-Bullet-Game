@@ -42,5 +42,5 @@ public class SceneTransitionController : MonoBehaviour
     //            //nextLevel.SetActive(true);
     //        }
     //    }
-    //}
+    }
 }
