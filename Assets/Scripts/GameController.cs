@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour
     public GameObject menuLevel;
     public GameObject activeLevel;
     //
+    private GameObject levelToLoad;
+
     public PlayerController playerController;
 
 
@@ -22,6 +24,8 @@ public class GameController : MonoBehaviour
     public RealBulletController realBulletController;
     public Vector3 originPos;
     public GameObject pistolBulletOrigin;
+    public GameObject bulletTrail;
+
 
     public bool canShootMode = false;
     public bool canFireVirtBullet = true;
@@ -38,6 +42,15 @@ public class GameController : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip winClip;
     public AudioClip missClip;
+
+    public GameObject environmentHolder;
+
+
+    public float waitTime;
+    private float wTime;
+    private bool wait = false;
+    private bool waitForMenuLevel = false;
+    private bool waitForLevel = false;
     private void Awake()
     {
         if (primaryButtonPress == null)
@@ -80,14 +93,28 @@ public class GameController : MonoBehaviour
         if (devicesWithPrimaryButton.Contains(device))
             devicesWithPrimaryButton.Remove(device);
     }
-    void Start()
-    {
-       
-    }
 
     // Update is called once per frame
     void Update()
     {
+        if(wait)
+        {
+            wTime -= Time.deltaTime;
+            if(wTime < 0)
+            {
+                wait = false;
+                if (waitForMenuLevel)
+                {
+                    LoadLevel2();
+                    waitForMenuLevel = false;
+                }
+                else if (waitForLevel)
+                {
+                    LoadMenuLevel();
+                    waitForLevel = false;
+                }
+            }
+        }
         if(canShootMode)
         {
             bool tempState = false;
@@ -153,9 +180,12 @@ public class GameController : MonoBehaviour
     public void targetHit()
     {
         audioSource.clip = winClip;
-        audioSource.Play(); 
+        audioSource.Play();
         //tutaj odpalic transition sceny
-        LoadMenuLevel();
+        activeLevel.GetComponent<LevelController>().StartDisappearing();
+        wait = true;
+        wTime = waitTime;
+        waitForLevel = true;
     }
 
     public void obstacleHit()
@@ -166,18 +196,37 @@ public class GameController : MonoBehaviour
 
     public void LoadLevel(GameObject level)// this and loadmenulevel is to be changed
     {
+        levelToLoad = level;
+        wait = true;
+        waitForMenuLevel = true;
+        wTime = waitTime;
+        menuLevel.GetComponent<LevelController>().StartDisappearing();
+    }
+    public void LoadLevel2()
+    {
+        ClearBulletTrail();
         canShootMode = true;
         menuLevel.SetActive(false);
         playerController.ControllersToPistol();
-        activeLevel = Instantiate(level);
+        activeLevel = Instantiate(levelToLoad);
+        activeLevel.transform.parent = environmentHolder.transform;
     }
 
     public void LoadMenuLevel()
     {
+        ClearBulletTrail();
         playerController.ControllersToHands();
         canShootMode = false;
         Destroy(activeLevel);
         menuLevel.SetActive(true);
         menuLevel.GetComponent<MenuLevelController>().SetupMenuLevel();
+        menuLevel.GetComponent<LevelController>().StartShowing();
+    }
+    public void ClearBulletTrail()
+    {
+        Debug.Log("czyszczenie toru");
+        foreach (Transform child in bulletTrail.transform) {
+            Destroy(child.gameObject);
+        }
     }
 }

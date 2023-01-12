@@ -15,10 +15,26 @@ public class RealBulletController : MonoBehaviour
 
     public GameController gameController;
 
+    public GameObject track;
+
+    public GameObject redLine;
+    private GameObject redLineInstance;
+    private LineController redLineController;
+    public GameObject greenLine;
+    private GameObject greenLineInstance;
+    private LineController greenLineController;
+    private GameObject bulletTrail;
+
+
     public GameObject bullethitSoundEffect;
     void Start()
     {
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+        bulletTrail = gameController.bulletTrail;
+        gameController.ClearBulletTrail();
+        greenLineInstance = Instantiate(greenLine, new Vector3(0, 0, 0), Quaternion.identity);
+        greenLineInstance.transform.parent = bulletTrail.transform;
+        greenLineController = greenLineInstance.GetComponent<LineController>();
     }
 
     // Update is called once per frame
@@ -28,6 +44,7 @@ public class RealBulletController : MonoBehaviour
         {
             if(gameObject.transform.position == bulletPositions[posIndex])
             {
+                greenLineController.AddPoint(bulletPositions[posIndex]);
                 posIndex++;
             }
             if(posIndex >= bulletPositions.Count)
@@ -61,6 +78,16 @@ public class RealBulletController : MonoBehaviour
         {
             GameObject hitParticleEffect = Instantiate(hitParticleEffectPrefab, this.transform.position, this.transform.rotation);
             Instantiate(bullethitSoundEffect, this.transform.position, this.transform.rotation);
+
+            redLineInstance = Instantiate(redLine, new Vector3(0, 0, 0), Quaternion.identity);
+            redLineInstance.transform.parent = bulletTrail.transform;
+            redLineController = redLineInstance.GetComponent<LineController>();
+            int bulletsAmount = bulletPositions.Count;
+            redLineController.AddPoint(bulletPositions[posIndex-1]);
+            for (int i = posIndex; i < bulletsAmount; i++)
+            {
+                redLineController.AddPoint(bulletPositions[i]);
+            }
             other.GetComponent<ObstacleController>().ObstacleHit();
             gameController.obstacleHit();
             BulletEnded();

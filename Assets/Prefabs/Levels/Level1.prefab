@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 53168127e603fa740a8911c2bfe17529, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -110,10 +110,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7819f9225b0b55841a9ca9841a904e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetShape: {x: 0.85, y: 0, z: 0}
-  animationSpeed: 0.95
+  targetShape: {x: 0.38, y: 2.22, z: 0.38}
+  animationSpeed: 0.08
   isJiggle: 0
-  stepScale: {x: 0, y: 0, z: 0}
+  stepScale: {x: 0.0096, y: -0.017600002, z: 0.0096}
 --- !u!1 &2508920891029439035
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +177,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 53168127e603fa740a8911c2bfe17529, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -224,10 +224,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7819f9225b0b55841a9ca9841a904e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetShape: {x: 0.8, y: 0, z: 0}
+  targetShape: {x: 0.38, y: 2.22, z: 0.38}
   animationSpeed: 0.08
   isJiggle: 0
-  stepScale: {x: 0, y: 0, z: 0}
+  stepScale: {x: 0.0096, y: -0.017600002, z: 0.0096}
 --- !u!1 &3072520958967732279
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +291,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 53168127e603fa740a8911c2bfe17529, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -338,10 +338,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7819f9225b0b55841a9ca9841a904e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetShape: {x: 0.78, y: 0, z: 0}
-  animationSpeed: 1
+  targetShape: {x: 0.38, y: 2.22, z: 0.38}
+  animationSpeed: 0.08
   isJiggle: 0
-  stepScale: {x: 0, y: 0, z: 0}
+  stepScale: {x: 0.0096, y: -0.017600002, z: 0.0096}
 --- !u!1 &3641465691335748184
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +405,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 53168127e603fa740a8911c2bfe17529, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -452,10 +452,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7819f9225b0b55841a9ca9841a904e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetShape: {x: 0.8, y: 0, z: 0}
-  animationSpeed: 0.75
+  targetShape: {x: 0.38, y: 2.22, z: 0.38}
+  animationSpeed: 0.08
   isJiggle: 0
-  stepScale: {x: 0, y: 0, z: 0}
+  stepScale: {x: 0.0096, y: -0.017600002, z: 0.0096}
 --- !u!1 &4234981897462788924
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,7 +519,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 53168127e603fa740a8911c2bfe17529, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -566,10 +566,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7819f9225b0b55841a9ca9841a904e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetShape: {x: 0.75, y: 0, z: 0}
-  animationSpeed: 1.1
+  targetShape: {x: 0.38, y: 2.22, z: 0.38}
+  animationSpeed: 0.08
   isJiggle: 0
-  stepScale: {x: 0, y: 0, z: 0}
+  stepScale: {x: 0.0096, y: -0.017600002, z: 0.0096}
 --- !u!1 &4281052696919317641
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,7 +633,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 53168127e603fa740a8911c2bfe17529, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -680,10 +680,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7819f9225b0b55841a9ca9841a904e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetShape: {x: 65, y: 0, z: 0}
-  animationSpeed: 0.7
+  targetShape: {x: 0.38, y: 2.22, z: 0.38}
+  animationSpeed: 0.08
   isJiggle: 0
-  stepScale: {x: 0, y: 0, z: 0}
+  stepScale: {x: 0.0096, y: -0.017600002, z: 0.0096}
 --- !u!1 &4768633112548861261
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,7 +747,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 53168127e603fa740a8911c2bfe17529, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -794,10 +794,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7819f9225b0b55841a9ca9841a904e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetShape: {x: 0.8, y: 0, z: 0}
-  animationSpeed: 0.9
+  targetShape: {x: 0.38, y: 2.22, z: 0.38}
+  animationSpeed: 0.08
   isJiggle: 0
-  stepScale: {x: 0, y: 0, z: 0}
+  stepScale: {x: 0.0096, y: -0.017600002, z: 0.0096}
 --- !u!1 &6698901025225846743
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,6 +807,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1426449707234145456}
+  - component: {fileID: 4017774694435317119}
   m_Layer: 0
   m_Name: Level1
   m_TagString: Target
@@ -839,6 +840,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4017774694435317119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6698901025225846743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07079616fcd2b54ea139e04f5ba0230, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeValue: 0
+  changeSpeed: 25
+  minValue: 0.21
+  maxValue: 35
+  objectsWithShader:
+  - {fileID: 2210161211289235847}
+  - {fileID: 9049449404061633373}
+  - {fileID: 1417181601794835971}
+  - {fileID: 273343290001137492}
+  - {fileID: 2465408926759208530}
+  - {fileID: 365204888141237419}
+  - {fileID: 3269346936463776}
+  - {fileID: 9032032437857384705}
+  - {fileID: 543004437779507453}
 --- !u!1 &8030478217752305170
 GameObject:
   m_ObjectHideFlags: 0
@@ -902,7 +929,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 53168127e603fa740a8911c2bfe17529, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -949,10 +976,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7819f9225b0b55841a9ca9841a904e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetShape: {x: 0.85, y: 0, z: 0}
-  animationSpeed: 0.9
+  targetShape: {x: 0.38, y: 2.22, z: 0.38}
+  animationSpeed: 0.08
   isJiggle: 0
-  stepScale: {x: 0, y: 0, z: 0}
+  stepScale: {x: 0.0096, y: -0.017600002, z: 0.0096}
 --- !u!1 &9007079243048707970
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,7 +1043,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 53168127e603fa740a8911c2bfe17529, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1063,10 +1090,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7819f9225b0b55841a9ca9841a904e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetShape: {x: 0.9, y: 0, z: 0}
-  animationSpeed: 0.75
+  targetShape: {x: 0.38, y: 2.22, z: 0.38}
+  animationSpeed: 0.08
   isJiggle: 0
-  stepScale: {x: 0, y: 0, z: 0}
+  stepScale: {x: 0.0096, y: -0.017600002, z: 0.0096}
 --- !u!1001 &757107764638844607
 PrefabInstance:
   m_ObjectHideFlags: 0

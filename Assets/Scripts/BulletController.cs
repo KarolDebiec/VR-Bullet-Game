@@ -22,6 +22,8 @@ public class BulletController : MonoBehaviour
     private bool fired = true;
     private bool ended;
 
+    public float trackingRate = 0.12f;
+
     public GameController gameController;
 
     public GameObject dotsContainer;
@@ -53,7 +55,7 @@ public class BulletController : MonoBehaviour
             transform.rotation = Quaternion.Euler(rightController.transform.localRotation.eulerAngles.x, rightController.transform.localRotation.eulerAngles.y, 0);
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
             time += Time.deltaTime;
-            if (time > 0.12f)
+            if (time > trackingRate)
             {
                 time = 0;
                 bulletPositions.Add(gameObject.transform.position);
