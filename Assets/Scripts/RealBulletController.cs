@@ -103,7 +103,10 @@ public class RealBulletController : MonoBehaviour
     void BulletEnded()
     {
         gameController.clearDots();
-        gameController.virtualBulletController.Dest();
+        if (gameController.virtualBulletController != null)
+        {
+            gameController.virtualBulletController.Dest();
+        }
         gameController.canFireVirtBullet = true;
         Destroy(gameObject);
     }

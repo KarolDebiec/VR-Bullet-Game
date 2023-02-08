@@ -25,6 +25,9 @@ public class GameController : MonoBehaviour
     public Vector3 originPos;
     public GameObject pistolBulletOrigin;
     public GameObject bulletTrail;
+    public float bulletDistance;//refers to virtual bullet //from 0 to 1 where 1 is fulldistance ahead and 0 is the end of the bullets available distance
+    private float realBulletDistance;
+    public float maxBulletDistance = 10.0f;
 
 
     public bool canShootMode = false;
@@ -51,6 +54,8 @@ public class GameController : MonoBehaviour
     private bool wait = false;
     private bool waitForMenuLevel = false;
     private bool waitForLevel = false;
+
+    public bool isTriggerPressed = false;
     private void Awake()
     {
         if (primaryButtonPress == null)
@@ -121,26 +126,38 @@ public class GameController : MonoBehaviour
             foreach (var device in devicesWithPrimaryButton)
             {
                 //Debug.Log(device.name);
-                bool primaryButtonState = false;
-                tempState = device.TryGetFeatureValue(CommonUsages.triggerButton, out primaryButtonState) // did get a value
-                            && primaryButtonState // the value we got
-                            || tempState; // cumulative result from other controllers
+                if(device.name == "Oculus Touch Controller - Right")
+                {
+                    bool primaryButtonState = false;
+                    tempState = device.TryGetFeatureValue(CommonUsages.triggerButton, out primaryButtonState) // did get a value
+                                && primaryButtonState // the value we got
+                                || tempState; // cumulative result from other controllers
+                }
             }
             if (tempState != lastButtonState) // Button state changed since last frame
             {
+                Debug.Log("changed button state");
+                isTriggerPressed = !isTriggerPressed;
                 primaryButtonPress.Invoke(tempState);
                 lastButtonState = tempState;
-                if (canFireVirtBullet)
+                if (canFireRealBullet && !isTriggerPressed)
                 {
-                    PulledTrigger();
-                    canFireVirtBullet = false;
-                }
-                if (canFireRealBullet)
-                {
+                    virtualBulletController.EndTracking();
                     FireRealBullet();
                     canFireRealBullet = false;
                 }
+                if (canFireVirtBullet && isTriggerPressed)
+                {
+                    PulledTrigger();
+                    canFireVirtBullet = false;
+                    canFireRealBullet = true;
+                }
             }
+        }
+        if(virtualBulletController != null)
+        {
+            realBulletDistance = virtualBulletController.distance;
+            bulletDistance = realBulletDistance / maxBulletDistance;
         }
     }
 
@@ -154,6 +171,7 @@ public class GameController : MonoBehaviour
     {
         GameObject virtualBullet = Instantiate(virtualBulletPrefab, pistolBulletOrigin.transform.position, pistolBulletOrigin.transform.rotation);
         virtualBulletController = virtualBullet.GetComponent<BulletController>();
+        //virtualBulletController.distance = maxBulletDistance;
        // Debug.Log("Trigger pulled!!!");
     }
 
@@ -224,9 +242,11 @@ public class GameController : MonoBehaviour
     }
     public void ClearBulletTrail()
     {
-        Debug.Log("czyszczenie toru");
+        //Debug.Log("czyszczenie toru");
         foreach (Transform child in bulletTrail.transform) {
             Destroy(child.gameObject);
         }
     }
+
+
 }

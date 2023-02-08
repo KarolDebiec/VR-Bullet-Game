@@ -73,6 +73,16 @@ public class BulletController : MonoBehaviour
             gameController.VirtualBulletStopped();
         }
     }
+    public void EndTracking()
+    {
+        bulletPositions.Add(gameObject.transform.position);
+        bulletRotations.Add(gameObject.transform.localRotation);
+        fired = false;
+        ended = true;
+        gameController.VirtualBulletStopped();
+        //Dest();
+    }
+
 
     public void FireVirtualBullet()
     {
