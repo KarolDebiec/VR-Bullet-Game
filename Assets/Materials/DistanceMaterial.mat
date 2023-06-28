@@ -77,13 +77,13 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
-    - _distance_parameter: 1.61
+    - _distance_parameter: 0.22
     - _glow_size: 0.2
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _base_color: {r: 0.8773585, g: 0.8773585, b: 0.8773585, a: 0}
-    - _glow_color: {r: 341.78006, g: 341.78006, b: 341.78006, a: 0}
+    - _glow_color: {r: 341.78006, g: 341.78006, b: 316.72812, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &769166097273882838
 MonoBehaviour:

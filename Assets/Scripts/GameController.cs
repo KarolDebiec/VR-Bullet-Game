@@ -45,8 +45,14 @@ public class GameController : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip winClip;
     public AudioClip missClip;
+    public AudioClip nobulletsClip;
 
     public GameObject environmentHolder;
+
+
+    public PistolController pistolController;
+    public int bulletsAmount;
+    public int maxBulletsAmount;
 
 
     public float waitTime;
@@ -56,6 +62,8 @@ public class GameController : MonoBehaviour
     private bool waitForLevel = false;
 
     public bool isTriggerPressed = false;
+    
+
     private void Awake()
     {
         if (primaryButtonPress == null)
@@ -64,6 +72,8 @@ public class GameController : MonoBehaviour
         }
 
         devicesWithPrimaryButton = new List<InputDevice>();
+
+       // pistolController = GameObject.FindGameObjectWithTag("Pistol").GetComponent<PistolController>();
     }
 
     void OnEnable()
@@ -140,13 +150,13 @@ public class GameController : MonoBehaviour
                 isTriggerPressed = !isTriggerPressed;
                 primaryButtonPress.Invoke(tempState);
                 lastButtonState = tempState;
-                if (canFireRealBullet && !isTriggerPressed)
+                if (canFireRealBullet && !isTriggerPressed && bulletsAmount>0)
                 {
                     virtualBulletController.EndTracking();
                     FireRealBullet();
                     canFireRealBullet = false;
                 }
-                if (canFireVirtBullet && isTriggerPressed)
+                if (canFireVirtBullet && isTriggerPressed && bulletsAmount > 0)
                 {
                     PulledTrigger();
                     canFireVirtBullet = false;
@@ -171,7 +181,7 @@ public class GameController : MonoBehaviour
     {
         GameObject virtualBullet = Instantiate(virtualBulletPrefab, pistolBulletOrigin.transform.position, pistolBulletOrigin.transform.rotation);
         virtualBulletController = virtualBullet.GetComponent<BulletController>();
-        //virtualBulletController.distance = maxBulletDistance;
+        virtualBulletController.distance = maxBulletDistance;
        // Debug.Log("Trigger pulled!!!");
     }
 
@@ -180,6 +190,8 @@ public class GameController : MonoBehaviour
         GameObject realBullet = Instantiate(realBulletPrefab, pistolBulletOrigin.transform.position, pistolBulletOrigin.transform.rotation);
         realBulletController = realBullet.GetComponent<RealBulletController>();
         GetTrackToRealBullet();
+        bulletsAmount--;
+        pistolController.PistolShot();
         realBulletController.startReplay = true;
     }
 
@@ -191,13 +203,23 @@ public class GameController : MonoBehaviour
     {
         foreach (Transform child in dotsContainer.transform)
         {
-            GameObject.Destroy(child.gameObject);
+            Destroy(child.gameObject);
         }
     }
 
     public void targetHit()
     {
         audioSource.clip = winClip;
+        audioSource.Play();
+        //tutaj odpalic transition sceny
+        activeLevel.GetComponent<LevelController>().StartDisappearing();
+        wait = true;
+        wTime = waitTime;
+        waitForLevel = true;
+    }
+    public void outOfBullets()
+    {
+        audioSource.clip = nobulletsClip;
         audioSource.Play();
         //tutaj odpalic transition sceny
         activeLevel.GetComponent<LevelController>().StartDisappearing();
@@ -223,6 +245,8 @@ public class GameController : MonoBehaviour
     public void LoadLevel2()
     {
         ClearBulletTrail();
+        bulletsAmount = maxBulletsAmount;
+        pistolController.ResetPistol();
         canShootMode = true;
         menuLevel.SetActive(false);
         playerController.ControllersToPistol();
@@ -248,5 +272,12 @@ public class GameController : MonoBehaviour
         }
     }
 
-
+    public void BulletEnd()// is invoked when real bullet ended either by hitting something or by running to the end of the trail
+    {
+        if(bulletsAmount <= 0)
+        {
+            Debug.Log("No bullets no fun");
+            outOfBullets();
+        }
+    }
 }

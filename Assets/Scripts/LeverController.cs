@@ -28,7 +28,7 @@ public class LeverController : MonoBehaviour
             gameObject.transform.eulerAngles = gameObject.transform.eulerAngles - diffRotation;
             if (gameObject.transform.localRotation.z > LeverBound)
             {
-                Debug.Log("lever przekrecilo");
+                //Debug.Log("lever przekrecilo");
                 ResetPosition();
                 //gameObject.transform.localRotation = Quaternion.identity;
                 chooseBoxController.PulledLever();
@@ -43,13 +43,13 @@ public class LeverController : MonoBehaviour
     }
     public void StartTrackHand()
     {
-        Debug.Log("zalapo cos lever");
+        //Debug.Log("zalapo cos lever");
         target = targetRightHand;
         tracking = true;
     }
     public void StopTrackHand()
     {
-        Debug.Log("puszczono lever");
+        //Debug.Log("puszczono lever");
         tracking = false;
     }
     

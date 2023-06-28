@@ -68,9 +68,10 @@ public class RealBulletController : MonoBehaviour
             GameObject hitParticleEffect = Instantiate(hitParticleEffectPrefab, this.transform.position, this.transform.rotation);
             Instantiate(bullethitSoundEffect, this.transform.position, this.transform.rotation);
             gameController.targetHit();
+            other.GetComponent<RagdollActivator>().ActivateRagdoll();
             BulletEnded();
         }
-        else if (other.tag == "Controller")
+        else if (other.tag == "Controller")// if it hits controller nothing happens
         {
 
         }
@@ -108,6 +109,7 @@ public class RealBulletController : MonoBehaviour
             gameController.virtualBulletController.Dest();
         }
         gameController.canFireVirtBullet = true;
+        gameController.BulletEnd();
         Destroy(gameObject);
     }
 }

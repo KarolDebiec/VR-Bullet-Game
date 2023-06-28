@@ -189,8 +189,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 693761b0e44c34b49ab50a56a2b7d72d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 10
-  bulletRotationSpeed: 30
+  bulletSpeed: 20
+  bulletRotationSpeed: 40
   hitParticleEffectPrefab: {fileID: 3545242035276937506, guid: 6fcbca8147325b04ca74353507634383,
     type: 3}
   bulletPositions: []
